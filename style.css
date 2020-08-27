@@ -1,0 +1,281 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* navigation */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 65px;
+    background-color: #2F4F4F;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo-link {
+    text-decoration: none;
+}
+
+.logo {
+    color: #FFFAF0;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 54px;
+    margin-top: 3px;
+}
+
+.logo h1 {
+    font-size: 14px;
+}
+
+.logo-wrap {
+    height: 58px;
+    width: 58px;
+    background: rgb(250,250,250);
+    background: radial-gradient(circle, rgba(250,250,250,0.9904778317577031) 0%, rgba(255,255,255,0) 75%);
+}
+
+.nav-links {
+    position: absolute;
+    right: 0;
+    height: 92vh;
+    top: 65px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 70%;
+    background-color: #2F4F4F;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+    z-index: 2;
+    padding-bottom: 40px;
+}
+
+.nav-links li {
+    list-style: none;
+    opacity: 0;
+}
+
+.nav-links a {
+    color: #FFFAF0;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-size: 14px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    text-shadow: 0 0 100px #666,                
+                 0 0 100px #666,                
+                 0 0 100px #666,                
+                 0 0 100px #666,                
+                 0 0 100px #666,                
+                 0 0 50px #000,                
+                 0 0 50px #000,                
+                 0 0 50px #000,               
+                 0 0 50px #000,                
+                 0 0 50px #000;
+}
+
+.social-links {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding-top: 5px;
+    right: 0;
+    bottom: 0;
+    justify-content: space-around;
+    transform: translateX(100%);
+    transition: transform 0.5s ease;
+    z-index: 3;
+    width: 70%;
+}
+
+.social-links a {
+    padding-left: 6px;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.social-links a:hover {
+    filter: invert();
+}
+
+.burger {
+    display: block;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 2px;
+    background-color: #FFFAF0;
+    margin: 5px 5px 4px 5px;
+    transition: all 0.3s ease;
+}
+
+.toggle .bar-1 {
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+
+.toggle .bar-2 {
+    opacity: 0;
+}
+
+.toggle .bar-3 {
+    transform: rotate(45deg) translate(-4px,-5px);
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@media (min-width: 522px) {
+    .nav-links {
+        width: 45%;
+        padding-bottom: 0;
+    }
+    .social-links {
+        width: 45%;
+    }
+}
+
+@media (min-width: 768px) {
+    .logo h1 {
+        font-size: 16px;
+    }
+    .nav-links {
+        position: relative;
+        right: unset;
+        height: unset;
+        top: unset;
+        align-items: unset;
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        transform: translateX(0%);
+    }
+    .nav-links li {
+        opacity: 1;
+    }
+    .social-links {
+        position: relative;
+        padding-top: 5px;
+        right: unset;
+        bottom: unset;
+        justify-content: unset;
+        width: initial;
+        transform: translateX(0%);
+    }
+    .social-links a {
+        opacity: 1;
+    }
+    .burger {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .logo h1 {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 1100px) {
+    .nav-links {
+        width: 30%;
+    }
+}
+
+/* Weather app */
+
+.weather-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(rgb(47, 150, 163), rgb(48, 62, 143));
+    color: white;
+}
+
+.location,
+.temperature {
+    height: 30vh;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.temperature {
+    flex-direction: column;
+}
+
+.degree-section {
+    display: flex;
+    align-items: center;
+}
+
+.degree-section span {
+    margin: 10px;
+    font-size: 30px;
+}
+
+.degree-section h2 {
+    font-size: 40px;
+}
+
+.extra-info {
+    padding-top: 40px;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.extra-info span {
+    margin: 10px;
+    font-size: 20px;
+}
+
+.extra-info h3 {
+    font-size: 30px;
+}
+
+.wind-section {
+    display: flex;
+    justify-content: center;
+}
+
+.humidity-section {
+    display: flex;
+    justify-content: center;
+}
