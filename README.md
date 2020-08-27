@@ -20,7 +20,7 @@ const url = `${proxy}https://github.com/utopianfool/link-api/projects.json`;
 
 ```
 
-:globe_with_meridans:
+:globe_with_meridians:
 [Demo](https://weather.utopianfool.co.uk)
 
 ------------------------------------------------------
