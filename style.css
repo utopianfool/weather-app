@@ -66,6 +66,7 @@ nav {
 }
 
 .nav-links li {
+    position: relative;
     list-style: none;
     opacity: 0;
     text-align: center;
@@ -119,6 +120,7 @@ nav {
 .sub-menu {
     padding-top: 15px;
     text-align: center;
+    display: block;
 }
 
 .sub-menu li {
@@ -191,9 +193,28 @@ nav {
         display: flex;
         justify-content: space-between;
         transform: translateX(0%);
+        padding-bottom: 0;
+        padding-left: 20px;
     }
     .nav-links li {
         opacity: 1;
+    }
+    .nav-links li:hover > .sub-menu {
+        display: block;
+    }
+    .drop-down:focus + .sub-menu {
+        display: block;
+    }
+    .drop-down:after {
+        content: "›";
+        position: absolute;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        -webkit-transform: rotate(90deg);
+              transform: rotate(90deg);
+        top: -3px;
+        right: -15px;
     }
     .social-links {
         position: relative;
@@ -210,11 +231,27 @@ nav {
     .burger {
         display: none;
     }
+    .sub-menu {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: -10px;
+        background-color: #2F4F4F;
+        width: 200px;
+        padding: 40px 10px 10px 10px;
+        z-index: -1;
+    }
+    .sub-menu li {
+        text-align: left;
+    }
 }
 
 @media (min-width: 992px) {
     .logo h1 {
         font-size: 18px;
+    }
+    .nav-links {
+        padding-left: 0;
     }
 }
 
