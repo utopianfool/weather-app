@@ -37,6 +37,37 @@ const navSlide = () => {
 
 }
 
+/* Use fetch api to get list of projects hosted elsewhere */
+const projectsList = () => {
+
+    var address = config.api; // Use config.js to hide api
+    // Get json data from url
+    const proxy = 'https://cors-anywhere.herokuapp.com/'; // use proxy to fix cors on localhost
+    const url = `${proxy}${address}`;
+
+
+    fetch(url) 
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            // console.log(data);
+            appendData(data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    function appendData(data) {
+        var subMenu = document.querySelector('.sub-menu');
+        for(var i = 0; i < data.length; i++) {
+            var listItem = document.createElement('li');
+            listItem.innerHTML = '<a title="' + data[i].description + '" href="' + data[i].link_url + '">' + data[i].link_text + '</a>';
+            subMenu.appendChild(listItem);
+        }
+    } // https://howtocreateapps.com/fetch-and-display-json-html-javascript/
+
+}
+
 /* Weather app */
 window.addEventListener('load', () => {
     let long;
@@ -81,7 +112,11 @@ window.addEventListener('load', () => {
 
         });
     } else {
-        h1.textContent = 'There has been an error. Please enable geolocation in your browser.';
+        locationTimezone.textContent = 'There has been an error. Please enable geolocation in your browser.';
+    }
+
+    function mapIconsToSkycons() {
+
     }
 
     function setIcons(main, iconID) {
@@ -96,6 +131,7 @@ window.addEventListener('load', () => {
 // keep it tidy by invoking smaller functions inside of app function
 const app = () => {
     navSlide();
+    projectsList();
 }
 
 app();
