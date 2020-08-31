@@ -77,10 +77,10 @@ nav {
     text-decoration: none;
     letter-spacing: 3px;
     font-size: 14px;
-    transition: all 0.3s ease-in-out;
+    /*transition: all 0.3s ease-in-out;*/
 }
 
-.nav-links a:hover {
+/*.nav-links a:hover {
     text-shadow: 0 0 100px #666,                
                  0 0 100px #666,                
                  0 0 100px #666,                
@@ -91,6 +91,34 @@ nav {
                  0 0 50px #000,               
                  0 0 50px #000,                
                  0 0 50px #000;
+}*/
+
+.nav-links a,
+.nav-links a:after,
+.nav-links a:before {
+    transition: all 0.5s;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.nav-links a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: '.';
+    color: transparent;
+    background: #aaa;
+    height: 1px;
+}
+
+.nav-links a:hover:after {
+    width: 100%;
 }
 
 .social-links {
@@ -205,7 +233,7 @@ nav {
     .drop-down:focus + .sub-menu {
         display: block;
     }
-    .drop-down:after {
+    /*.drop-down:after {
         content: "›";
         position: absolute;
         color: white;
@@ -215,7 +243,7 @@ nav {
               transform: rotate(90deg);
         top: -3px;
         right: -15px;
-    }
+    }*/
     .social-links {
         position: relative;
         padding-top: 5px;
