@@ -266,7 +266,8 @@ nav {
         top: 0;
         left: -10px;
         background-color: #2F4F4F;
-        width: 200px;
+        width: auto;
+        min-width: 255px;
         padding: 40px 10px 10px 10px;
         z-index: -1;
     }
