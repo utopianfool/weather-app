@@ -61,7 +61,7 @@ const projectsList = () => {
         var subMenu = document.querySelector('.sub-menu');
         for(var i = 0; i < data.length; i++) {
             var listItem = document.createElement('li');
-            listItem.innerHTML = '<a title="' + data[i].description + '" href="' + data[i].link_url + '">' + data[i].link_text + '</a>';
+            listItem.innerHTML = '<a target="_blank" rel="noopener" title="' + data[i].description + '" href="' + data[i].link_url + '">' + data[i].link_text + '</a>';
             subMenu.appendChild(listItem);
         }
     } // https://howtocreateapps.com/fetch-and-display-json-html-javascript/
@@ -97,7 +97,7 @@ window.addEventListener('load', () => {
                 .then(data => {
                     console.log(data);
                     const {temp, humidity} = data.main; // pull out temp and humid from "main" data object
-                    const {description, icon, main} = data.weather[0]; // pull out description and icon from "weather array"
+                    var {description, icon, main} = data.weather[0]; // pull out description and icon from "weather array"
                     const {speed} = data.wind;
                     const {country} = data.sys;
                     // Set DOM elements from api
@@ -106,6 +106,25 @@ window.addEventListener('load', () => {
                     locationTimezone.textContent = data.name + ' / ' + country;
                     windSpeed.textContent = speed;
                     humidityPercentage.textContent = humidity;
+
+                    // Translate openweathermap data (main) into relevant skycon name
+                    function mapIconsToSkycons() {
+                        if(main == 'Thunderstorm') {
+                            main = 'SLEET';
+                        }
+                        if(main == 'Drizzle') {
+                            main = 'RAIN';
+                        }
+                        if(main == 'Clear') {
+                            main = 'CLEAR_DAY';
+                        }
+                        if(main == 'Clouds') {
+                            main = 'PARTLY_CLOUDY_DAY';
+                        }
+                    }
+
+                    mapIconsToSkycons();
+
                     // Set icons
                     setIcons(main, document.querySelector('.icon'));
                 });
@@ -113,10 +132,6 @@ window.addEventListener('load', () => {
         });
     } else {
         locationTimezone.textContent = 'There has been an error. Please enable geolocation in your browser.';
-    }
-
-    function mapIconsToSkycons() {
-
     }
 
     function setIcons(main, iconID) {
