@@ -19,11 +19,12 @@ body {
 nav {
     position: relative;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 65px;
     background-color: #2F4F4F;
     font-family: 'Poppins', sans-serif;
+    padding: 0 10px;
 }
 
 .logo-link {
@@ -199,6 +200,10 @@ nav {
 }
 
 @media (min-width: 768px) {
+    nav {
+        justify-content: space-around;
+        padding: 0;
+    }
     .logo h1 {
         font-size: 16px;
     }
