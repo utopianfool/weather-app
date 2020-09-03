@@ -83,21 +83,7 @@ nav {
     text-decoration: none;
     letter-spacing: 3px;
     font-size: 14px;
-    /*transition: all 0.3s ease-in-out;*/
 }
-
-/*.nav-links a:hover {
-    text-shadow: 0 0 100px #666,                
-                 0 0 100px #666,                
-                 0 0 100px #666,                
-                 0 0 100px #666,                
-                 0 0 100px #666,                
-                 0 0 50px #000,                
-                 0 0 50px #000,                
-                 0 0 50px #000,               
-                 0 0 50px #000,                
-                 0 0 50px #000;
-}*/
 
 .nav-links a,
 .nav-links a:after,
@@ -337,12 +323,12 @@ nav {
 }
 
 .extra-info {
-    padding-top: 40px;
+    /*padding-top: 40px;*/
     width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-direction: column;
+    /*flex-direction: column;*/
 }
 
 .extra-info span {
@@ -350,17 +336,18 @@ nav {
     font-size: 20px;
 }
 
-.extra-info h3 {
-    font-size: 30px;
+.extra-info h2 {
+    font-size: 1rem;
 }
 
-.wind-info {
-    padding-bottom: 20px;
+.extra-info h3 {
+    font-size: 30px;
 }
 
 .wind-section {
     display: flex;
     justify-content: center;
+    padding-right: 40px;
 }
 
 .humidity-section {
@@ -372,7 +359,10 @@ nav {
     .extra-info {
         flex-direction: row;
     }
-    .wind-info {
-        padding-bottom: 0;
+    .extra-info h2 {
+        font-size: 1.5rem;
+    }
+    .wind-section {
+        padding-right: 0px;
     }
 }
