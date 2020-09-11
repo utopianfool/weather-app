@@ -14,10 +14,14 @@ body {
     overflow: hidden;
 }
 
+.weather-container {
+    padding-top: 65px;
+}
+
 /* navigation */
 
 nav {
-    position: relative;
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,6 +29,8 @@ nav {
     background-color: #2F4F4F;
     font-family: 'Poppins', sans-serif;
     padding: 0 10px;
+    width: 100%;
+    z-index: 2;
 }
 
 .logo-link {
@@ -200,7 +206,11 @@ nav {
 }
 
 @media (min-width: 768px) {
+    .weather-container {
+        padding-top: 0;
+    }
     nav {
+        position: relative;
         justify-content: space-around;
         padding: 0;
     }
@@ -231,17 +241,6 @@ nav {
     .drop-down:focus + .sub-menu {
         display: block;
     }
-    /*.drop-down:after {
-        content: "›";
-        position: absolute;
-        color: white;
-        font-size: 24px;
-        font-weight: bold;
-        -webkit-transform: rotate(90deg);
-              transform: rotate(90deg);
-        top: -3px;
-        right: -15px;
-    }*/
     .social-links {
         position: relative;
         padding-top: 5px;
